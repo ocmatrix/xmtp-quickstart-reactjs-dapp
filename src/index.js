@@ -1,7 +1,9 @@
-import { Buffer } from 'buffer';
-window.Buffer = window.Buffer || Buffer;
+if (!window.Buffer) {
+  window.Buffer = require("buffer/").Buffer;
+}
 window.process = window.process || { env: {} };
-import "./polyfills";
+
+import "./polyfills";  // <--- 这一行保留，不要删！
 import React from "react";
 import ReactDOM from "react-dom/client";
 import InboxPage from "./Page";
